@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SampleCrudApplication.Models.Account>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAccountDetails</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "AddAccountDetail")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccHolder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IFSCNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccHolder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IFSCNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAccount", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
